@@ -1,5 +1,4 @@
 import { SignInBody } from "../models/models"
-import { handleSignUp } from "./signup";
 
 export const handleSignIn = async(signInbody: SignInBody) => {
     // logic for sign in
@@ -20,7 +19,7 @@ export const handleSignIn = async(signInbody: SignInBody) => {
             "errormessage": "Invalid Password"
         }
     }
-    handleSignUp("pk@gmail.com", signInbody.password, signInbody.username);
+    
     return{
         "status": 200,
         "userDetails": userDetails

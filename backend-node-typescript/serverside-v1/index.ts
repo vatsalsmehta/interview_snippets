@@ -15,9 +15,9 @@ try {
         console.log(`Connected successfully on port ${port}`);
     });
 
-    // route for sign in 
-    const singinRoute = require("./handlers/signinHandler");
-    app.use('/signin', singinRoute);
+    // route for sign in and signup authentication
+    const authenticationRoute = require("./handlers/authenticationHandler");
+    app.use('/authentication', authenticationRoute);
 
     // TODO: route for signup
 } catch (error:any) {

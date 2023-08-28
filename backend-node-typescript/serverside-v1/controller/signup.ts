@@ -13,14 +13,21 @@ export const handleSignUp = async(email:string, password:string, username:string
         Item: data
     };
 
+    var isSignUpSuccessful:boolean=true;
     docClient.put(transactionItem, function (err) {
         if (err) {
-            console.log("users::save::error - " + JSON.stringify(err, null, 2));
+            console.log("Save Failed" + JSON.stringify(err, null, 2));
+            isSignUpSuccessful=false
         } else {
-            console.log("users::save::success");
+            console.log("Saved Successfully");
+            isSignUpSuccessful=true
         }
     });
 
+    return{
+        "status": isSignUpSuccessful ? 200 : 400,
+        "message": isSignUpSuccessful ? "User Created Successfully" : "User Signup Failed"
+    }
 
 
 }
